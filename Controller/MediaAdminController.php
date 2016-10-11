@@ -23,6 +23,7 @@ class MediaAdminController extends Controller
      */
     public function createAction(Request $request = null)
     {
+        $request = $request === null ? $this->getRequest() : $request;
         if (false === $this->admin->isGranted('CREATE')) {
             throw new AccessDeniedException();
         }
@@ -55,6 +56,7 @@ class MediaAdminController extends Controller
      */
     public function listAction(Request $request = null)
     {
+        $request = $request === null ? $this->getRequest() : $request;
         if (false === $this->admin->isGranted('LIST')) {
             throw new AccessDeniedException();
         }
